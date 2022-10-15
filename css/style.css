@@ -24,6 +24,7 @@ header{
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-bottom: 4rem;
 }
 
 header h1{
@@ -49,41 +50,53 @@ header .boxWhoWeAre p{
 }
 
 section{
-  padding: 40px 25% 80px;
+  padding: 0px 25% 80px;
 }
 
 section .gridContainerPhotos{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: minmax(200px, auto);
+  grid-auto-rows: minmax(300px, auto);
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
 
 section .gridContainerPhotos .itemPerson{
   position: relative;
-  padding: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 0 30px;
+  margin-bottom: 2rem;
+  overflow: hidden;
 }
 
-
-section .gridContainerPhotos .itemPerson:nth-child(2){
+section .gridContainerPhotos .itemPerson:nth-child(3n - 1){
   top: 20%;
 }
-
-section .gridContainerPhotos .itemPerson:nth-child(5){
-  top: 20%;
-}
-
 
 section .gridContainerPhotos .itemPerson img{
-  width: 100%;
+  max-width: 100%;
+  height: auto;
+  transition: 0.40s all ease;
 }
+
+section .gridContainerPhotos .itemPerson img:hover{
+  transform: scale(1.1);
+}
+
 
 section .gridContainerPhotos .itemPerson p:nth-child(2){
   position: absolute;
-  top: 20px;
-  right: -5px;
+  top: 0;
+  right: 0;
+  transition: 0.40s all ease;
 }
+
+section .gridContainerPhotos .itemPerson:hover p{
+  opacity: 0;
+}
+
+
 
 section .gridContainerPhotos .itemPerson p:nth-child(2){
   writing-mode: vertical-lr;
@@ -98,4 +111,88 @@ section .gridContainerPhotos .itemPerson p:nth-child(3){
   font-family: 'Poppins';
   font-size: 1rem;
   font-weight: 600;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  margin-top: 5rem;
+}
+
+footer p{
+  color: #cfcfcf;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+footer p span{
+  color: #BDBDBD;
+}
+
+
+@media (max-width:1600px){
+  section .gridContainerPhotos .itemPerson:nth-child(3n - 1){
+    top: 0;
+  }
+  section .gridContainerPhotos .itemPerson:nth-child(even){
+    top: 40%;
+  }
+}
+
+@media (max-width:1060px){
+  header {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  header .boxWhoWeAre {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  section{
+    padding: 0px 15% 80px;
+  }
+}
+
+@media (max-width:800px){
+  section{
+    padding: 0px 5% 80px;
+  }
+}
+
+@media (max-width:600px){
+  section{
+    padding: 0px 5% 80px;
+  }
+
+  section .gridContainerPhotos .itemPerson:nth-child(3n - 1){
+    top: 0;
+  }
+  section .gridContainerPhotos .itemPerson:nth-child(even){
+    top: 0;
+  }
+}
+
+@media (max-width:300px){
+  footer p{
+    font-size: .8em;
+  }
 }
